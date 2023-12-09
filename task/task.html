@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="letter"></div>
+    <div id="btn"></div>
+
+    <script>
+        const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+
+        function handleClick(letter){
+            const letterDiv = document.getElementById("letter");
+            const selectedLetter = letterDiv.innerHTML += letter;
+            replaceLetter();
+        }
+
+        document.getElementById("btn").innerHTML = alphabet.map(el => `<button onclick="handleClick('${el}')">${el}</button>`).join(" ");
+
+        function replaceLetter(){
+            document.getElementById("letter") .innerHTML = document.getElementById("letter").textContent.replace(/([A-Z])\1{2,}/g, '_');
+        }
+
+    </script>
+</body>
+</html>
